@@ -7,7 +7,11 @@ Rails.application.routes.draw do
 
   namespace :api do
     get 'index'
+    get "users/:id", :to => "users#show"
+    post "authenticate", :to => "users#authenticate"
+    post "users", :to => "users#create"
+    patch "users", :to => "users#save"
+    post "device", :to => "users#device"
   end
 
-  devise_for :users
 end

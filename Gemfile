@@ -33,6 +33,7 @@ gem 'mandrill-api'
 gem 'bootstrap_form'
 gem 'pry'
 gem 'figaro', '>= 1.0.0.rc1'
+gem "rolify"
 
 gem 'rails_12factor', group: :production
 gem 'capistrano-rails', group: :development
