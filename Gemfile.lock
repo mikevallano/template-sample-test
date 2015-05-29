@@ -84,6 +84,7 @@ GEM
       thor (~> 0.14)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
+    flickraw (0.9.8)
     fog (1.30.0)
       fog-atmos
       fog-aws (~> 0.0)
@@ -344,6 +345,7 @@ DEPENDENCIES
   delayed_job_active_record
   devise
   figaro (>= 1.0.0.rc1)
+  flickraw
   fog
   gibbon
   honeybadger

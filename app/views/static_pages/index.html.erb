@@ -1,0 +1,19 @@
+<div class=container>
+  <h2>Enter a Movie and Get Data</h2>
+<p>
+  </p>
+
+<%= form_tag root_path, method: :get do %>
+  <%= text_field_tag :movie_title %>
+  <%= submit_tag "submit" %>
+<% end %>
+<div><p></div>
+
+ <div> <strong>Title:</strong> <%= @results[:Title] %></div>
+ <div> <strong>IMDB Rating:</strong>  <%= @results[:imdbRating] %></div>
+ <div> <strong>Runtime:</strong>  <%= @results[:Runtime] %></div>
+ <div> <strong>Genre:</strong>  <%= @results[:Genre] %></div>
+ <div> <strong>Plot:</strong>  <%= @results[:Plot] %></div>
+
+</div>
+

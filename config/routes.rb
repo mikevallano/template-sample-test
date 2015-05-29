@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  root "static_pages#index"
+
+  resources :kittens
   resources :posts
-  root "home#index"
+
 
   namespace :admin do
     get 'index'
