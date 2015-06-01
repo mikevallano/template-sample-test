@@ -4,17 +4,29 @@
   </p>
 
 <%= form_tag root_path, method: :get do %>
-  <%= text_field_tag :movie_title %>
-  <%= submit_tag "submit" %>
+  <%= label_tag :movie_title, "Enter Title:" %>
+  <%= text_field_tag :movie_title %><br>
+  <%= submit_tag "Gimme", :class => "btn btn-primary" %>
 <% end %>
-<div><p></div>
-<!-- @results.each do |result| -->
+
+<!-- http://localhost:5000/?utf8=%E2%9C%93&movie_title=fargo&commit=Gimme -->
+
+<br><br>
+<div>
+<% if @results %>
+  <div> <h3>Movie Data:</h3>
  <div> <strong>Title:</strong> <%= @results[:Title] %></div>
  <div> <strong>IMDB Rating:</strong>  <%= @results[:imdbRating] %></div>
  <div> <strong>Runtime:</strong>  <%= @results[:Runtime] %></div>
  <div> <strong>Genre:</strong>  <%= @results[:Genre] %></div>
  <div> <strong>Plot:</strong>  <%= @results[:Plot] %></div>
- <p></p>
+ <% end %>
+</div>
+
+  <br>
+  <p><%= link_to 'Search again', root_path, :class => "btn btn-primary" %></p>
+  <br>
+
 
 
 </div>

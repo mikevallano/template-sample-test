@@ -1,0 +1,9 @@
+<h2>Nothing to see here. Just a page</h2>
+
+
+
+<%= form_tag kittens_path method: :post do  %>
+  <%= label_tag :name, "Kitty name:" %>
+  <%= text_field_tag "kitten[name]" %><br>
+  <%= submit_tag "send kitty to space" %>
+<% end %>

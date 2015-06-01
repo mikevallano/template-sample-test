@@ -39,7 +39,7 @@ class KittensController < ApplicationController
 
     respond_to do |format|
       if @kitten.save
-        format.html { redirect_to @kitten, notice: 'Kitten was successfully created.' }
+        format.html { redirect_to kittens_path, notice: 'Kitten was successfully created.' }
         format.json { render :show, status: :created, location: @kitten }
       else
         format.html { render :new }

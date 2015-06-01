@@ -1,0 +1,16 @@
+<h1>Furry page o kitties to edit</h1>
+
+
+
+<% @kittens.each do |kitten| %>
+  <%= form_tag "kittens/#{kitten.id}", method: :put do  %>
+      <%= label_tag :softness, "#{kitten.name}'s softness:" %>
+      <%= text_field_tag "kitten[softness]" %>
+      <%= submit_tag "send kitty to space" %>
+  <% end %>
+<% end %>
+
+
+<%= link_to 'New Kitten', new_kitten_path %>
+
+<!-- form_tag kitten_path(kitten), method: :put do  -->

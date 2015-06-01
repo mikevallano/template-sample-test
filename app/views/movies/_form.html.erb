@@ -1,0 +1,13 @@
+<div class="container">
+  <h2>Enter a Movie and Get Data</h2>
+<p>
+  </p>
+
+<%= form_tag results_path, method: :post do %>
+  <%= label_tag :movie_title, "Enter Title:" %>
+  <%= text_field_tag :movie_title %><br>
+  <%= submit_tag "submitta" %>
+<% end %>
+
+
+</div>
