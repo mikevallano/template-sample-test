@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "zorro", to: "static_pages#nada"
   root "static_pages#index"
   get "tuup", to: "static_pages#furry"
+  get "flick", to: "static_pages#flick"
 
   resources :kittens
   resources :posts

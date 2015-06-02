@@ -1,0 +1,12 @@
+<h2>Get pics from Flickr!</h2>
+
+
+<%= form_tag flick_path, method: :get do %>
+  <%= label_tag :tag, "Enter Flickr Tag:" %>
+  <%= text_field_tag :tag %><br>
+  <%= submit_tag "Gimme", :class => "btn btn-primary" %>
+<% end %>
+
+<% @photoarray.each do |photo| %>
+  <%= image_tag photo %>
+<% end %>

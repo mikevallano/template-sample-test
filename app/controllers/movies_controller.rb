@@ -45,7 +45,11 @@ class MoviesController < ApplicationController
       runtime: results[:Runtime],
       genre: results[:Genre],
       plot: results[:Plot] }
+
+      # assign hash to a new movie object
     @movie = Movie.new(movie_info)
+
+    # save new movie object to the database
 
     respond_to do |format|
       if @movie.save
