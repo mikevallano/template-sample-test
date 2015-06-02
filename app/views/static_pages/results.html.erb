@@ -3,14 +3,15 @@
   <p><%= link_to 'Search again', root_path %></p>
   <br>
 
+Rolelist: <%= @rolelist %>
 
  <div> <strong>Kitty:</strong> <%= @kitty %></div>
- <% if @results %>
+
  <div> <strong>Title:</strong> <%= @results[:Title] %></div>
  <div> <strong>IMDB Rating:</strong>  <%= @results[:imdbRating] %></div>
  <div> <strong>Runtime:</strong>  <%= @results[:Runtime] %></div>
  <div> <strong>Genre:</strong>  <%= @results[:Genre] %></div>
  <div> <strong>Plot:</strong>  <%= @results[:Plot] %></div>
- <% end %>
+
 
 </div>

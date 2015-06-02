@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
 
   post "results", :to => "movies#create"
+  get "results", to: "static_pages#results"
 
   get "zorro", to: "static_pages#nada"
   root "static_pages#index"
   get "tuup", to: "static_pages#furry"
   get "flick", to: "static_pages#flick"
+  post "omega", to: "static_pages#omega"
+  get "paramtest", to: "static_pages#paramtest"
 
   resources :kittens
   resources :posts

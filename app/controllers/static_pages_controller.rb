@@ -12,14 +12,27 @@ def index
 end
 
 def results
+  @rolelister = params[:list_o_roles]
+  @rolelist = @rolelister.split(',')
   @kitty = params[:kitty]
-  movie_title = params[:movie_title].gsub(" ","-")
-  content = open("http://www.omdbapi.com/?t=#{movie_title}&y=&plot=short&r=json").read
+  if params[:movie_title]
+    @movie_title = params[:movie_title].gsub(" ","-")
+  else
+    @movie_title = "fargo"
+  end
+  content = open("http://www.omdbapi.com/?t=#{@movie_title}&y=&plot=short&r=json").read
   @results = JSON.parse(content, symbolize_names: true)
 end
 
 def furry
   @kittens = Kitten.all
+end
+
+def omega
+  puts "omega api call fired: #{request.body}"
+  @body = request.body
+  render json: @body
+  # render json: @body.to_json(only: [:taco])
 end
 
 def flick

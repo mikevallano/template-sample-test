@@ -1,0 +1,7 @@
+<h3>Enter Roles</h3>
+
+<%= form_tag results_path, method: :get do %>
+  <%= label_tag :list_o_roles, "Enter Roles:" %>
+  <%= text_field_tag :list_o_roles %><br>
+  <%= submit_tag "Gimme", :class => "btn btn-primary" %>
+<% end %>
