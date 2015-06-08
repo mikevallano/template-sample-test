@@ -1,0 +1,28 @@
+<%= form_for([:admin, @loner]) do |f| %>
+  <% if @loner.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@loner.errors.count, "error") %> prohibited this loner from being saved:</h2>
+
+      <ul>
+      <% @loner.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <div class="field">
+    <%= f.label "loner name" %><br>
+    <%= f.text_field :name %>
+  </div>
+
+     <div class="field">
+    <%= f.label "loner taco" %><br>
+    <%= f.text_field :taco %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+    <% puts "form submitted" %>
+  </div>
+<% end %>

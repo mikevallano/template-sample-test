@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Loners</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @loners.each do |loner| %>
+      <tr>
+        <td><%= loner.name %></td>
+        <td><%= link_to 'Show', admin_loner_path(loner) %></td>
+        <td><%= link_to 'Edit', edit_admin_loner_path(loner) %></td>
+        <td><%= link_to 'Destroy', admin_loner_path(loner), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Loner', new_admin_loner_path %>

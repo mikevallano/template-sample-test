@@ -60,6 +60,11 @@ def flick
 
 end
 
+  def dbugga
+    @tacos = ("i like tacos" + " on taco toosdee")
+    render(:text => @tacos )
+  end
+
 
 
 end

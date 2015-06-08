@@ -9,25 +9,27 @@ Rails.application.routes.draw do
   get "flick", to: "static_pages#flick"
   post "omega", to: "static_pages#omega"
   get "paramtest", to: "static_pages#paramtest"
+  get "dbugga", to: "static_pages#dbugga"
+  get "javatester", to: "static_pages#javatester"
 
   resources :kittens
-  resources :posts
   resources :movies
 
 
   namespace :admin do
     get 'index'
-    get 'posts', to: "posts#index"
+    resources :posts
+    resources :thingies
+    resources :loners
   end
 
   namespace :api do
     get 'index'
-    get "users/:id", :to => "users#show"
-    post "authenticate", :to => "users#authenticate"
-    post "users", :to => "users#create"
-    patch "users", :to => "users#save"
-    post "device", :to => "users#device"
   end
+
+  devise_for :users
+  get "users/:id", :to => "users#show"
+  get "users", :to => "users#index"
 
 end
 

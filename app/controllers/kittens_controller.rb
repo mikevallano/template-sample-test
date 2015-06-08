@@ -36,9 +36,10 @@ class KittensController < ApplicationController
   # POST /kittens.json
   def create
     @kitten = Kitten.new(kitten_params)
+    puts "kitteh params: #{kitten_params}"
 
     respond_to do |format|
-      if @kitten.save
+      if @kitten.save!
         format.html { redirect_to kittens_path, notice: 'Kitten was successfully created.' }
         format.json { render :show, status: :created, location: @kitten }
       else

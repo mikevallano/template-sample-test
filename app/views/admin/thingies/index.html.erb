@@ -1,0 +1,32 @@
+<h1>Admin::Thingies#index</h1>
+<p>Find me in app/views/admin/thingies/index.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<h1>Listing thingies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @thingies.each do |thingie| %>
+      <tr>
+        <td><%= thingie.name %></td>
+        <td><%= thingie.description %></td>
+        <td><%= link_to "edit", edit_admin_thingy_path(thingie) %></td>
+        <td><%= link_to "show", admin_thingy_path(thingie) %></td>
+        <td><%= link_to 'Destroy', admin_thingy_path(thingie), method: :delete,
+          data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

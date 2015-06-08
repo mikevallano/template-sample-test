@@ -1,0 +1,20 @@
+<h1>Admin::Thingies#show</h1>
+<p>Find me in app/views/admin/thingies/show.html.erb</p>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @thingie.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @thingie.description %>
+</p>
+
+
+<%= link_to "edit", edit_admin_thingy_path %> |
+<%= link_to 'Back', admin_thingies_path %>
+
+<!-- link_to 'Edit', [:admin, @thingie] -->
