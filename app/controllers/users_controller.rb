@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-   before_action :set_user, only: [:edit, :update, :destroy]
+   before_action :set_user, only: [:destroy]
 
   # GET /users
   # GET /users.json
@@ -30,15 +30,25 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @user = User.find(params[:id])
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(user_params)
+    puts "form params: #{user_params}"
+    puts "role ids: #{user_params["role_ids"]}"
+    user_params["role_ids"].each do |id|
+      id = id.to_i
+      if id > 0
+        rolename = Role.find(id).name
+        @user.add_role(:rolename)
+      end
+    end
 
     respond_to do |format|
-      if @user.save
+      if @user.save!
         format.html { redirect_to users_path, notice: 'user was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -51,8 +61,23 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    @user = User.find(params[:id])
+    puts "previous roles: #{@user.role_ids}"
+    # if user_params["role_ids"].size > 0
+    #   @user.role_ids =[]
+    # end
+    # puts "cleared roles: #{@user.role_ids}"
+    # user_params["role_ids"].each do |id|
+    #   id = id.to_i
+    #   if id > 0
+    #     rolename = Role.find(id).name
+    #     @user.add_role(:rolename)
+    #   end
+    # end
+
     respond_to do |format|
       if @user.update(user_params)
+        puts "after roles: #{@user.role_ids}"
         format.html { redirect_to @user, notice: 'user was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -80,6 +105,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :password)
+      params.require(:user).permit(:first_name, :last_name, :password, :email, :role_ids => [])
     end
 end

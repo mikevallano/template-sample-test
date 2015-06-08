@@ -4,6 +4,8 @@
 <p>List of Users</p>
 
 <% @users.each do |user| %>
-<%= user.first_name %><br>
-<%= user.last_name %>
+  First Name:<%= user.first_name %>
+  Last Name:<%= user.last_name %><br>
 <% end %>
+
+<%= link_to "new user", 'users/new' %>
