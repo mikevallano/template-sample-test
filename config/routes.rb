@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :events
   post "results", :to => "movies#create"
   get "results", to: "static_pages#results"
 

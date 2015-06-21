@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @event.name %><br>
+  <strong>Kitten ID:</strong>
+  <%= @event.gatito_id %><br>
+  <strong>Kitten Name:</strong>
+  <%= @event.gatito.name %>
+</p>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

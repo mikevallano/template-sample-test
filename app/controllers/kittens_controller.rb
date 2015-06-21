@@ -5,6 +5,8 @@ class KittensController < ApplicationController
   # GET /kittens.json
   def index
     @kittens = Kitten.all
+    gon.kittens = Kitten.all
+    gon.first = Kitten.first.name
     respond_to do |format|
       format.html
       format.json { render json: @kittens}

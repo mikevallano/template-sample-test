@@ -19,6 +19,10 @@
     <%= f.label :body %><br>
     <%= f.text_area :body %>
   </div>
+   <div class="field">
+    <%= f.label :kitten_id, "Kitten:", :class => "form-label" %><br>
+    <%= f.collection_select(:kitten_id, :id, :name, {:class => "form-control"}, {:multiple => false }) %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
