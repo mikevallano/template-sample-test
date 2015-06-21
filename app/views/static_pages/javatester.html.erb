@@ -8,10 +8,12 @@
   <%= text_field_tag "loner[name]" %><br>
  <!--  text_field_tag "loner[taco]"  -->
   <%= submit_tag '+ kit', :type => 'button', :class => "btn", :id => "kittybutton" %><br>
-  <%= label_tag :kitten, "kitty name:", :id => "kitfield" %>
-  <%= text_field_tag :kitten_name, nil, :placeholder => "enter name", :id => "kittyfield" %><br>
-  <%= label_tag :softness, "kitty softness:", :id => "softnessfield" %>
-  <%= text_field_tag :kitten_softness, nil, :placeholder => "enter softness", :id => "softnessid" %>
-  <%= button_tag 'Add kitty', :id => "new_kitty_button",  :type => 'button', :class => "btn btn-primary" %><br><br><p></p>
+  <div id="kittyform">
+    <%= label_tag :kitten, "kitty name:", :id => "kitfield" %>
+    <%= text_field_tag :kitten_name, nil, :placeholder => "enter name", :id => "kittyfield" %><br>
+    <%= label_tag :softness, "kitty softness:", :id => "softnessfield" %>
+    <%= text_field_tag :kitten_softness, nil, :placeholder => "enter softness", :id => "softnessid" %>
+    <%= button_tag 'Add kitty', :id => "new_kitty_button",  :type => 'button', :class => "btn btn-primary" %><br><br><p></p>
+  </div>
   <%= submit_tag "submit loner" %>
 <% end %>
