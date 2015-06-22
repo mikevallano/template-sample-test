@@ -1,0 +1,18 @@
+<div class="container">
+
+<p></p>
+<p>Here are the sample kitties:</p>
+
+<% @kitten_sample.each do |kitten| %>
+<ul>
+  <li><%= kitten.name %></li>
+</ul>
+ <% end %>
+
+
+ <%= link_to "share", "/kittyresults?kittyone=#{@kitten_sample.first.name}&kittytwo=#{@kitten_sample.second.name}&kittythree=#{@kitten_sample.last.name}" %><br><br>
+
+ <%= link_to "gimme some random kitties", "/kittyresults" %>
+
+
+</div>

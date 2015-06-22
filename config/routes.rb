@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get "paramtest", to: "static_pages#paramtest"
   get "dbugga", to: "static_pages#dbugga"
   get "javatester", to: "static_pages#javatester"
+  get "kittyresults", to: "static_pages#kittyresults"
 
   resources :kittens
   resources :movies

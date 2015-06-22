@@ -14,9 +14,9 @@ $(document).ready(function() {
 //   });
 
 $("#header").hover(function() {
-    $(this).css("background-color","yellow");
+    $(this).css("color",'#666666');
   }, function() {
-    $(this).css("background-color","white");
+    $(this).css("color","black");
   }
 );
 
@@ -31,7 +31,6 @@ $("#header").hover(function() {
 
 $('#loner_taco').hide();
 $('#loner_taco').val(tacos);
-
 
 
 $('#main').hide();
@@ -53,7 +52,9 @@ $("#new_kitty_button").on('click', function(event) {
     })
       .done(function(data) {
       var newkitname = "new kitty name: " + $("#kittyfield").val();
+      var newkitsoft = "new kitty softness: " + $("#softnessid").val();
       console.log(newkitname);
+      console.log(newkitsoft);
   });
 });
 

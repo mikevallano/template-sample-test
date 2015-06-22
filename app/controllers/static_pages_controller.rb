@@ -28,6 +28,18 @@ def furry
   @kittens = Kitten.all
 end
 
+def kittyresults
+  if params[:kittyone]
+    @first = params[:kittyone]
+    @second = params[:kittytwo]
+    @third = params[:kittythree]
+    @kitten_sample = [Kitten.find_by_name(@first), Kitten.find_by_name(@second), Kitten.find_by_name(@third)]
+  else
+    @kitten_sample = Kitten.all.sample(3)
+  end
+
+end
+
 def omega
   puts "omega api call fired: #{request.body}"
   @body = request.body
