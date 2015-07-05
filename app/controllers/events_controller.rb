@@ -19,12 +19,18 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    @event.starts_at = @event.starts_at.to_s
+    @event.ends_at = @event.ends_at.to_s
   end
 
   # POST /events
   # POST /events.json
   def create
     @event = Event.new(event_params)
+    # event_params2 = event_params
+    # event_params2[:starts_at] = date_from_string(event_params2[:starts_at])
+    # event_params2[:ends_at] = date_from_string(event_params2[:ends_at])
+    # @event = Event.new(event_params2)
 
     respond_to do |format|
       if @event.save
@@ -41,7 +47,16 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1.json
   def update
     respond_to do |format|
-      if @event.update(event_params)
+      if @event.starts_at != event_params[:starts_at] || @event.ends_at != event_params[:ends_at]
+        event_params2 = event_params
+        event_params2[:starts_at] = date_from_string(event_params2[:starts_at])
+        event_params2[:ends_at] = date_from_string(event_params2[:ends_at])
+      else
+        event_params2 = event_params
+        event_params2[:starts_at] = event_params[:starts_at]
+        event_params2[:ends_at] = event_params[:ends_at]
+      end
+      if @event.update(event_params2)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
@@ -69,6 +84,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :gatito_id)
+      params.require(:event).permit(:name, :gatito_id, :starts_at, :ends_at)
     end
 end

@@ -36,6 +36,7 @@ gem 'figaro', '>= 1.0.0.rc1'
 gem "rolify"
 gem "flickraw"
 gem 'gon' #for passing rails variables to javascript
+gem 'chronic' #for parsing times
 
 gem 'rails_12factor', group: :production
 gem 'capistrano-rails', group: :development

@@ -59,6 +59,7 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
+    chronic (0.10.2)
     coderay (1.1.0)
     colorize (0.7.7)
     columnize (0.9.0)
@@ -348,6 +349,7 @@ DEPENDENCIES
   byebug
   capistrano-rails
   carrierwave
+  chronic
   delayed_job_active_record
   devise
   figaro (>= 1.0.0.rc1)

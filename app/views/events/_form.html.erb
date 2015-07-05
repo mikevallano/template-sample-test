@@ -19,6 +19,8 @@
     <%= f.label :gatito_id, "Kitten:", :class => "form-label" %><br>
     <%= f.collection_select(:gatito_id, Kitten.all, :id, :name, {:class => "form-control"}, {:multiple => false }) %>
   </div>
+  <%= f.text_field :starts_at, :id => "starts_at", :class => "datetime", :placeholder => "Starts At" %><br>
+  <%= f.text_field :ends_at, :id => "ends_at", :class => "datetime", :placeholder => "Ends At" %>
   <div class="actions">
     <%= f.submit %>
   </div>

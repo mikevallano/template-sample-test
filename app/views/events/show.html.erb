@@ -6,7 +6,11 @@
   <strong>Kitten ID:</strong>
   <%= @event.gatito_id %><br>
   <strong>Kitten Name:</strong>
-  <%= @event.gatito.name %>
+  <%= @event.gatito.name %><br>
+  <strong>Starts At:</strong>
+  <%= @event.starts_at.to_s %><br>
+  <strong>Ends At:</strong>
+  <%= @event.ends_at.to_s %>
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
