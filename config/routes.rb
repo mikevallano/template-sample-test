@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get "dbugga", to: "static_pages#dbugga"
   get "javatester", to: "static_pages#javatester"
   get "kittyresults", to: "static_pages#kittyresults"
+  get "jaxattack", to: "static_pages#jaxattack"
 
   resources :kittens
   resources :movies
