@@ -1,4 +1,5 @@
 class TheapiController < ApplicationController
+  require 'net/https'
   skip_before_filter  :verify_authenticity_token
 
    def api_receiver_post
@@ -13,6 +14,9 @@ class TheapiController < ApplicationController
     render text: "There's been a p00sh made by #{@commit_username} with the message
      '#{@commit_message}', which can be viewed at #{@commit_url} ."
 
+    uri = URI('https://maker.ifttt.com/trigger/gitpush/with/key/b8V2qfGx8siUDQMz6zGLE4')
+    res = Net::HTTPS.post_form(uri, 'value1' => "#{@commit_username}", 'value2' => "#{@commit_message}", 'value3' => "#{@commit_url}")
+    puts res.body
 
     #   respond_to do |format|
     #   format.html
