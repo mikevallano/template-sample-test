@@ -3,20 +3,33 @@ class TheapiController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
    def api_receiver_post
-    @payload = request.body.read
+    @slack_url = ENV["SLACK_WEBHOOK_URL"]
+    @new_slack_url = "https://hooks.slack.com/services/#{@slack_url}"
+    @maker_key = ENV["IFTTT_MAKER_KEY"]
+    @new_maker_url = "https://maker.ifttt.com/trigger/gitpush/with/key/#{@maker_key}"
 
-    @parsedload = JSON.parse(@payload, symbolize_names: true)
-# render text: "Thanks for sending a POST request! The payload is:: #{@payload}"
+
+    @inpayload = request.body.read
+
+    @parsedload = JSON.parse(@inpayload, symbolize_names: true)
+    # render text: "Thanks for sending a POST request! The payload is:: #{@payload}"
 
     @commit_username = @parsedload[:commits][0][:author][:username]
     @commit_message = @parsedload[:commits][0][:message]
     @commit_url = @parsedload[:commits][0][:url]
-    render text: "There's been a p00sh made by #{@commit_username} with the message
-     '#{@commit_message}', which can be viewed at #{@commit_url} ."
+    # render text: "There's been a p00sh made by #{@commit_username} with the message
+    #  '#{@commit_message}', which can be viewed at #{@commit_url} ."
 
-    uri = URI('https://maker.ifttt.com/trigger/gitpush/with/key/b8V2qfGx8siUDQMz6zGLE4')
-    res = Net::HTTP.post_form(uri, 'value1' => "#{@commit_username}", 'value2' => "#{@commit_message}", 'value3' => "#{@commit_url}")
-    puts res.body
+    slackuri = URI(@new_slack_url)
+    @payload={"text": "#{@commit_username} just p00sed with with a commit message of
+      #{@commit_message}.\nYou can check out the commit <#{@commit_url}|here> to see more."}.to_json
+    render text: "#{@payload}"
+    slackres = Net::HTTP.post_form(slackuri, 'payload' => "#{@payload}")
+    puts slackres.body
+
+    # uri = URI(@new_maker_url)
+    # res = Net::HTTP.post_form(uri, 'value1' => "#{@commit_username}", 'value2' => "#{@commit_message}", 'value3' => "#{@commit_url}")
+    # puts res.body
 
     #   respond_to do |format|
     #   format.html
