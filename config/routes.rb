@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   get "kittyresults", to: "static_pages#kittyresults"
   get "jaxattack", to: "static_pages#jaxattack"
 
+  match "api_receiver", to: "theapi#api_receiver_post", via: :post
+  match "api_receiver", to: "theapi#api_receiver_get", via: :get
+
   resources :kittens
   resources :movies
 
