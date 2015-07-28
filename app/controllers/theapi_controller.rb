@@ -15,7 +15,7 @@ class TheapiController < ApplicationController
      '#{@commit_message}', which can be viewed at #{@commit_url} ."
 
     uri = URI('https://maker.ifttt.com/trigger/gitpush/with/key/b8V2qfGx8siUDQMz6zGLE4')
-    res = Net::HTTPS.post_form(uri, 'value1' => "#{@commit_username}", 'value2' => "#{@commit_message}", 'value3' => "#{@commit_url}")
+    res = Net::HTTP.post_form(uri, 'value1' => "#{@commit_username}", 'value2' => "#{@commit_message}", 'value3' => "#{@commit_url}")
     puts res.body
 
     #   respond_to do |format|
