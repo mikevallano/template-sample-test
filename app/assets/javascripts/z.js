@@ -30,8 +30,10 @@ $('#jaxyinfo').on("click", function() {
     url: '/kittens.json',
     success: function(data) {
       $.each(data, function(i, kitteh) {
-        $('#jaxyinfo').append('<li>' + kitteh.name + '</li>');
-        console.log('success is firing');
+        var appender = '<li>' + kitteh.name + '</li>';
+        $('#jaxyinfo').fadeIn('<li>' + kitteh.name + '</li>');
+        // $('#jaxyinfo').append('<li>' + kitteh.name + '</li>');
+        // console.log('success is firing');
       })
     },
     error: function(request, errorType, errorMessage) {
