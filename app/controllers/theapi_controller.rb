@@ -21,8 +21,8 @@ class TheapiController < ApplicationController
     #  '#{@commit_message}', which can be viewed at #{@commit_url} ."
 
     slackuri = URI(@new_slack_url)
-    @payload={"text": "#{@commit_username} just p00sed with with a commit message of
-      #{@commit_message}.\nYou can check out the commit <#{@commit_url}|here> to see more."}.to_json
+    @payload={"text": "#{@commit_username} just p00shed with with a commit message of:
+      '#{@commit_message}'.\nYou can check out the commit <#{@commit_url}|here> to see it."}.to_json
     render text: "#{@payload}"
     slackres = Net::HTTP.post_form(slackuri, 'payload' => "#{@payload}")
     puts slackres.body
